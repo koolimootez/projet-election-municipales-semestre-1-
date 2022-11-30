@@ -13,11 +13,11 @@ if (ajouter(l2,"point.txt")==1)
 printf("ajout valider" );
 list l = chercher(2234,"point.txt");
 }
-if (l.id-list == -1)
+if (l.id_list == -1)
 printf("inexistant");
 else
 
-printf("%d %s %d %d\n",list.id,list.couleur,list.x,list.y);
+printf("%d %s %d %d\n",&list.id,list.couleur,&list.x,&list.y);
 
 if (supprimer(7789,"point.txt")==1 )
 printf("suppression valider");
