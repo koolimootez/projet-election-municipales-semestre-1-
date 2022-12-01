@@ -1,0 +1,2 @@
+1 CIN1 nom1 prenom1 2/05/1993 Tunis homme celebataire adresse1 5070 Tunis observateur bureau_de_vote1 nom1.prenom1@gmail.com  
+2 CIN2_MODIFIE nom2_MODIFIE prenom2_MODIFIE 2/08/1993 Tunis homme celebataire adresse1_MODIFIE 5070 Tunis electeur bureau_de_vote3 nom2.prenom2@gmail.com  

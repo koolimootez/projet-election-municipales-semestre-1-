@@ -2,15 +2,18 @@
 #include<stdio.h>
 
 int ajouter(User u, char filename [])
-{
+{ 
     FILE * f=fopen(filename, "a");
     if(f!=NULL)
     {
-        fprintf(f,"%d %s %s %s %s %s %s %s %s %d %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.email);
+        fprintf(f,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email);
         fclose(f);
         return 1;
     }
-    else return 0;
+    else
+	{ 
+	return 0;
+	}
 }
 
 int modifier(int id, User nouv,  char filename [])
@@ -24,15 +27,15 @@ int modifier(int id, User nouv,  char filename [])
 	}
     else
     	{
-		while(fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.email)!= EOF)
+		while(fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email)!= EOF)
 		{
 			if(u.id!=id)
 				{
-        				 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.email);
+        				 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email);
 				}
 			else
 				{
-					 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s  \n",nouv.id,nouv.identifiant,nouv.nom,nouv.prenom,nouv.date_de_naissance,nouv.lieu_de_naissance,nouv.genre,nouv.statut_social,nouv.addresse,nouv.code_postal,nouv.gouvernorat,nouv.email);
+					 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s  \n",nouv.id,nouv.identifiant,nouv.nom,nouv.prenom,nouv.date_de_naissance,nouv.lieu_de_naissance,nouv.genre,nouv.statut_social,nouv.addresse,nouv.code_postal,nouv.gouvernorat,nouv.role,nouv.bureau_de_vote,nouv.email);
 				}
 
 		}
@@ -56,11 +59,11 @@ int supprimer(int id,  char filename [])
 	}
     else
     	{
-		while(fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.email)!= EOF)
+		while(fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email)!= EOF)
 		{
 			if(u.id!=id)
 				{
-        				 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.email);
+        				 fprintf(f2,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s  \n",u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email);
 				}
 		}
        	        fclose(f);
@@ -81,7 +84,7 @@ User chercher(int id,  char filename [])
     	{
 
 		while(trouver == 0 && 
-fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.email)!= EOF)
+fscanf(f,"%d %s %s %s %s %s %s %s %s %d %s %s %s %s",&u.id,u.identifiant,u.nom,u.prenom,u.date_de_naissance,u.lieu_de_naissance,u.genre,u.statut_social,u.addresse,&u.code_postal,u.gouvernorat,u.role,u.bureau_de_vote,u.email)!= EOF)
 			{
 				if(id==u.id)
 				{
